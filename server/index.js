@@ -27,6 +27,12 @@
 // which server is contacting, hostname
 // distributed systems
 // security
-// websockets
+// websockets - would the implementation change
 // How to get local time
-//
+// hostname of our website and not the source of the request
+// authentication
+// check other services for health check and last N seconds report
+// port number, heartbeat number
+// time since last checkin
+// dynamic configuration, multiple servers acting on a single data source
+// postgres, redis, mongo

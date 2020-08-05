@@ -10,7 +10,7 @@ module.exports.loadServers = (path = "./db.json") => {
 
   return serversConfig.map((server) => ({
     id: server.id,
-    hostname: server.hostname,
+    serverId: server.serverId,
     lastCheckIn: new Date(server.lastCheckIn),
   }));
 };

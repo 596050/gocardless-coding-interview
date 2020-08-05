@@ -6,8 +6,10 @@ dotenv.config();
 
 const { loadServers, saveServers } = require("./services/config");
 
-const servers = loadServers();
-const heartbeatTimeout = 60000;
+const dbJsonFileName = process.env.DB_JSON;
+const heartbeatTimeout = process.env.HEARTBEAT_TIMEOUT || 60000;
+
+const servers = loadServers(dbJsonFileName);
 
 // mongoose
 //   .connect(process.env.MONGO_URI, {
@@ -28,23 +30,23 @@ const app = express();
 // logging middleware
 // app.use(morgan("dev"));
 
-app.get("/checkin", async (req, res) => {
+app.get("/checkin/:serverId", async (req, res) => {
   console.log("req.hostname", req.hostname, servers);
   const serverIndex = servers.findIndex(
-    (server) => server.hostname === req.hostname
+    (server) => server.serverId === req.params.serverId
   );
 
   if (serverIndex < 0) {
     servers.push({
       id: Math.max(...servers.map((s) => s.id), 0) + 1,
-      hostname: req.hostname,
+      serverId: req.params.serverId,
       lastCheckIn: new Date(),
     });
   } else {
     servers[serverIndex].lastCheckIn = new Date();
   }
 
-  await saveServers(servers);
+  await saveServers(servers, dbJsonFileName);
 
   res.sendStatus(200);
 });
