@@ -23,3 +23,10 @@
 // Lazily read from the file
 // Redis, relational database, NoSQL
 // multiple instances writing to the file
+// hashing function to check
+// which server is contacting, hostname
+// distributed systems
+// security
+// websockets
+// How to get local time
+//

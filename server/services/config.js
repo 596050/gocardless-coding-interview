@@ -1,17 +1,21 @@
 const fs = require("fs");
 
 module.exports.loadServers = (path = "./db.json") => {
-  fs.readFileSync(path, "utf-8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
+  console.log(path);
+  const data = fs.readFileSync(path, "utf-8");
 
-    return JSON.parse(data);
-  });
+  serversConfig = JSON.parse(data);
+
+  console.log("data", data);
+
+  return serversConfig.map((server) => ({
+    id: server.id,
+    hostname: server.hostname,
+    lastCheckIn: new Date(server.lastCheckIn),
+  }));
 };
 
-module.exports.saveServers = async (path = "./db.json", servers = []) => {
+module.exports.saveServers = async (servers = [], path = "./db.json") => {
   try {
     await fs.promises.writeFile(path, JSON.stringify(servers), "utf-8");
   } catch (err) {
