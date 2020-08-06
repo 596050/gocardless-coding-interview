@@ -4,7 +4,7 @@ const axios = require("axios");
 // 2. implement another API that reports those that has not sent a heartbeat for more than N seconds
 
 // configured list of servers
-// register a server with you
+// register servers in a database
 
 module.exports.checkHeartBeat = async ({ url, timeout:  }) => {
   try {

@@ -1,5 +1,5 @@
 const express = require("express");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 // const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -28,10 +28,15 @@ const servers = loadServers(dbJsonFileName);
 const app = express();
 
 // logging middleware
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 
 app.get("/checkin/:serverId", async (req, res) => {
   console.log("req.hostname", req.hostname, servers);
+
+  // query database
+  // then time diff in the query
+  // if sql, do WHERE clause comparing timestamps
+  // Mongo, Redis using timestamp comparison specific apis
   const serverIndex = servers.findIndex(
     (server) => server.serverId === req.params.serverId
   );
