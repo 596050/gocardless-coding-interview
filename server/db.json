@@ -1,4 +1,5 @@
 [
   { "id": 1, "serverId": "test", "lastCheckIn": "2020-08-05T11:29:08.452Z" },
-  { "id": 2, "serverId": "test1", "lastCheckIn": "2020-08-05T11:29:23.407Z" }
+  { "id": 2, "serverId": "test1", "lastCheckIn": "2020-08-05T11:29:23.407Z" },
+  { "id": 3, "serverId": "::1", "lastCheckIn": "2020-08-07T09:51:17.745Z" }
 ]

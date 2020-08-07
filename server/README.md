@@ -1,3 +1,6 @@
+https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring
+
+https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring
 // they send an easy problem to solve
 
 // 1. implement an API that captures the heartbeat of some legacy systems and
@@ -22,7 +25,9 @@
 // register a server with you
 
 // CORS
-// ip address and port?
+
+<!-- // ip address and port? -->
+
 // backkoff algorithm to stop health check calls?
 // Lazily read from the file
 // Redis, relational database, NoSQL

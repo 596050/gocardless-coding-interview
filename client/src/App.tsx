@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const [state, setState] = React.useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/heartbeat-report")
+      .then((results) => results.json())
+      .then((data) => {
+        setState(data);
+      });
+  }, []);
+  console.log("state", state);
   return (
     <div className="App">
       <header className="App-header">
