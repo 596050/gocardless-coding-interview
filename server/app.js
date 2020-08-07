@@ -6,14 +6,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const { loadServers, saveServers } = require("./services/config");
-const postgresql = require("./models/initialise");
+// const postgresql = require("./models/initialise");
 const { insertIntoHealthCheck } = require("./models/create");
 const { fetchHeartbeatReport } = require("./models/get");
 
 const dbJsonFileName = process.env.DB_JSON;
 const heartbeatTimeout = process.env.HEARTBEAT_TIMEOUT || 60000;
 
-postgresql.client.connect();
+// postgresql.client.connect();
 const servers = loadServers(dbJsonFileName);
 
 const app = express();
