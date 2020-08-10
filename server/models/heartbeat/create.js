@@ -1,4 +1,4 @@
-const postgres = require("./initialise");
+const postgres = require("../database");
 
 const text =
   "INSERT INTO health_check(server_id, last_check_in) VALUES($1, $2) ON CONFLICT (server_id) DO UPDATE SET last_check_in = excluded.last_check_in RETURNING *;";

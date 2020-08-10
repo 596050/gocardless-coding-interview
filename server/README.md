@@ -24,17 +24,17 @@ https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-mon
 // configured list of servers
 // register a server with you
 
-// CORS
-
+<!-- // CORS -->
 <!-- // ip address and port? -->
+<!-- // backoff algorithm to stop health check calls? -->
+<!-- // multiple instances writing to the file -->
+<!-- // which server is contacting, hostname
+// distributed systems -->
 
-// backkoff algorithm to stop health check calls?
 // Lazily read from the file
+// index on the last check in column, to quickly find the matching serverId entries
 // Redis, relational database, NoSQL
-// multiple instances writing to the file
 // hashing function to check
-// which server is contacting, hostname
-// distributed systems
 // security
 // websockets - would the implementation change
 // How to get local time

@@ -6,14 +6,13 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const { loadServers, saveServers } = require("./services/config");
-// const postgresql = require("./models/initialise");
-const { insertIntoHealthCheck } = require("./models/create");
-const { fetchHeartbeatReport } = require("./models/get");
+
+const { insertIntoHealthCheck } = require("./models/heartbeat/create");
+const { fetchHeartbeatReport } = require("./models/heartbeat/get");
 
 const dbJsonFileName = process.env.DB_JSON;
 const heartbeatTimeout = process.env.HEARTBEAT_TIMEOUT || 60000;
 
-// postgresql.client.connect();
 const servers = loadServers(dbJsonFileName);
 
 const app = express();
@@ -53,6 +52,7 @@ app.get("/checkin/:serverId?", async (req, res) => {
   res.sendStatus(200);
 });
 
+// add timezone parameter
 app.get("/heartbeat-report", async (req, res) => {
   const data = await fetchHeartbeatReport({
     heartbeat_timeout: heartbeatTimeout,
@@ -87,3 +87,6 @@ app.listen(port, () => console.log(`Listening on port ${origin}${port}`));
 // mongoose.connection.on("error", (err) =>
 //   console.error(`DB connection error ${err}`)
 // );
+
+// const postgresql = require("./models/initialise");
+// postgresql.client.connect();
