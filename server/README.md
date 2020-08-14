@@ -49,3 +49,4 @@ https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-mon
 // NoSQL would give more flexibility for different types of server accessing this service
 // use a relational database for structured information
 // testing
+// how to do this for a distributed system?
