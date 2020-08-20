@@ -104,3 +104,22 @@ Fully safe and secure
 GoCardless is authorised by the Financial Conduct Authority, and ISO27001 certified for security standards.
 
 // api to bank
+
+// adding certain headers to the api request
+// different design patterns for redux
+// client side caching - local storage (things get cached in the browser, server code which leads to caching, Cache-Control, etag)
+// client side security - SetCookie
+// caching
+
+<!-- // Very important for auth
+// Set-Cookie:
+
+//
+// Cache-Control:
+
+import express from 'express';
+
+const app = express()
+app.get('/cache', (req, res) => {
+  res.append('Cache-Control', 'max-age=4892983').send('blah')
+}); -->
